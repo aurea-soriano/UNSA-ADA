@@ -4,12 +4,13 @@ using namespace std;
 using namespace std::chrono;
 
 int recursive_fib(int n){
-  if(n<=1)
+  if(n<=1)  // O(max(1,0))
     return n;
-
-  return recursive_fib(n-1) + recursive_fib(n-2);
+  return recursive_fib(n-1) + recursive_fib(n-2); //T(n-1)+ T(n-2)
 
 }
+
+
 int iterative_fib(int n){
   if(n<=0){          // O(max(1,0))
     return 0;
