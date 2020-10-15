@@ -2,7 +2,7 @@
 using namespace std;
 #include <chrono>
 using namespace std::chrono;
-
+#include <vector>
 /**
 Fibonacci recursivo
 */
@@ -30,7 +30,8 @@ int iterative_fib(int n){
   if(n<=0){        // O(max(1,0)) = O(1)
     return 0;
   }
-  int fibo[n+1];  // O(1)
+
+  std::vector<int> fibo(n+1);
   fibo[0] = 0;    // O(1)
   fibo[1] = 1;    // O(1)
 
