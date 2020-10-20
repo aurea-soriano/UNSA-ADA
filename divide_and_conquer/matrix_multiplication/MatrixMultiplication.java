@@ -88,7 +88,7 @@ public class MatrixMultiplication{
         int[][] M5 = strassenMultiplication(sumMatrices(a,b), h);
         int[][] M6 = strassenMultiplication(subMatrices(c,a), sumMatrices(e,f));
         int[][] M7 = strassenMultiplication(subMatrices(b,d), sumMatrices(g,h));
-
+        //7T(n/2)
 
         int[][] C11 = sumMatrices(subMatrices(sumMatrices(M1,M4),M5),M7);
         int[][] C12 = sumMatrices(M3,M5);
