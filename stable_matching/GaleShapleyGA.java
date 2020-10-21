@@ -1,4 +1,4 @@
-public class GaleShapleyB{
+public class GaleShapleyA{
 	public String[] m;
 	public String[] w;
 	public String[][] m_pref;
@@ -7,8 +7,8 @@ public class GaleShapleyB{
 	public Boolean[] free;
 	public String[] wife;
 	public String[] husband;
-	//grupo B
-	public GaleShapleyB(String[] men,String[] women,String[][] mp,String[][] wp){
+
+	public GaleShapleyA(String[] men,String[] women,String[][] mp,String[][] wp){
 		this.m = men;
 		this.w = women;
 		this.m_pref = mp;
@@ -154,7 +154,7 @@ public class GaleShapleyB{
 	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
 	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"}};
 
-	GaleShapleyB gs = new GaleShapleyB(groups,topics,grouppref,topicspref);
+	GaleShapleyA gs = new GaleShapleyA(groups,topics,grouppref,topicspref);
 	gs.stable_match();
 	gs.printCouples();
 	}
