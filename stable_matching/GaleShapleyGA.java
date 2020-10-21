@@ -122,37 +122,41 @@ public class GaleShapleyA{
 	public static void main(String args[]){
 		System.out.println("Gale Shapley  Algorithm\n");
 
-	String[] groups = { "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"};
+	String[] groups = { "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"};
 	String[] topics = {"P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10", "P11", "P12", "P13"};
 
 	/** groups preference **/
-	String[][] grouppref = { {"P11", "P2", "P6", "P3", "P5", "P9", "P12", "P13", "P7", "P8", "P4", "P10", "P1"},
-	  {"P6", "P8", "P7", "P11", "P12", "P13", "P10", "P9", "P5", "P4", "P3", "P2", "P1"},
-	  {"P12", "P9", "P11", "P10", "P1", "P8", "P7", "P6", "P5", "P13", "P3", "P2", "P4"},
-	  {"P6", "P8", "P12", "P11", "P10", "P9", "P13", "P7", "P5", "P4", "P3", "P2", "P1"},
-	  {"P8", "P9", "P5", "P13", "P6", "P2", "P12", "P11", "P3", "P1", "P4", "P7", "P10"},
-	  {"P2", "P8", "P6", "P7", "P5", "P10", "P1", "P11", "P12", "P13", "P9", "P3", "P4"},
-	  {"P2", "P4", "P9", "P5", "P8", "P6", "P3", "P1", "P7", "P12", "P11", "P13", "P10"},
-	  {"P9", "P6", "P8", "P7", "P10", "P11", "P12", "P5", "P1", "P2", "P4", "P13", "P3"},
-	  {"P11", "P4", "P10", "P7", "P5", "P2", "P8", "P3", "P1", "P9", "P6", "P12", "P13"},
-	  {"P4", "P9", "P3", "P2", "P1", "P11", "P6", "P7", "P8", "P5", "P10", "P13", "P12"},
-	  {"P13", "P11", "P12", "P10", "P9", "P8", "P7", "P2", "P3", "P4", "P5", "P1", "P6"},
-	  {"P6", "P3", "P8", "P4", "P1", "P11", "P5", "P12", "P9", "P13", "P2", "P7", "P10"},
-	  {"P1", "P2", "P4", "P13", "P5", "P7", "P12", "P11", "P10", "P6", "P8", "P9", "P3"}};
+	String[][] grouppref = {
+		{"P13","P1","P7","P6","P5","P2","P3","P8","P4","P10","P9","P11","P12"},
+		{"P6","P3","P1","P8","P13","P12","P10","P9","P7","P5","P11","P4","P2"},
+		{"P9","P2","P7","P1","P8","P12","P3","P5","P6","P11","P13","P4","P10"},
+		{"P2","P8","P7","P10","P11","P4","P12","P3","P5","P9","P6","P1","P13"},
+		{"P1","P6","P2","P5","P4","P3","P9","P10","P12","P8","P13","P11","P7"},
+		{"P11","P5","P8","P7","P3","P1","P4","P9","P2","P10","P6","P12","P13"},
+		{"P8","P1","P3","P7","P5","P13","P2","P12","P9","P10","P6","P4","P11"},
+		{"P12","P13","P11","P9","P8","P7","P5","P6","P4","P10","P3","P2","P1"},
+		{"P12","P13","P11","P3","P4","P2","P5","P1","P6","P7","P8","P9","P10"},
+		{"P10","P4","P6","P9","P3","P2","P5","P7","P11","P1","P13","P12","P8"},
+		{"P10","P4","P6","P9","P3","P2","P5","P7","P11","P1","P13","P12","P8"},
+		{"P10","P4","P6","P9","P3","P2","P5","P7","P11","P1","P13","P12","P8"},
+		{"P10","P4","P6","P9","P3","P2","P5","P7","P11","P1","P13","P12","P8"}
+	};
 	/** topics preference **/
-	String[][] topicspref = {{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA", "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA", "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"},
-	{ "Elite Wolves", "Team ADA",  "G--ADA", "Los Jaquers", "Algorisoft", "Suicide Squad", "Usmakapa", "Error404", "Evil geniuses (Válido)", "La rebelión de Benito", "team ada", "Grupo ADA", "Impostor"}};
+	String[][] topicspref = {
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"},
+	{ "SINERGIA","Clean Code","Neotech","A nada","ADA-3","UnderCover","GhostShell","ADA-friendly","Amiguitos", "Impostor1", "Impostor2", "Impostor3", "Impostor4"}
+	};
 
 	GaleShapleyA gs = new GaleShapleyA(groups,topics,grouppref,topicspref);
 	gs.stable_match();
