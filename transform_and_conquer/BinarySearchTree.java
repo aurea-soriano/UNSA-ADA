@@ -5,13 +5,13 @@ import java.util.List;
 class BinarySearchTree{
 
     class Node{
-       int key;
-       Node left, right;
+      int key;
+      Node left, right;
 
-       public Node(int key){
-         this.key = key;
-         this.right = this.left = null;
-       }
+      public Node(int key){
+        this.key = key;
+        this.left = this.right = null;
+      }
     }
 
     Node root;
@@ -27,16 +27,17 @@ class BinarySearchTree{
     Node addRecursive(Node node, int key){
       if(node == null){
         node = new Node(key);
-        return  node;
+        return node;
       }
-
-      if(key < node.key){
-        node.left  = addRecursive(node.left, key);
+      else{
+        if(key < node.key){
+          node.left = addRecursive(node.left, key);
+        }
+        else if(key > node.key){
+          node.right = addRecursive(node.right, key);
+        }
+        return node;
       }
-      else if(key > node.key){
-        node.right = addRecursive(node.right, key);
-      }
-      return node;
     }
 
 
@@ -51,18 +52,21 @@ class BinarySearchTree{
         printInOrderRecursive(node.right);
       }
     }
-    int maxLevel(Node node) {
-        if (node == null)
-            return 0;
 
-        return Math.max(maxLevel(node.left), maxLevel(node.right)) + 1;
+    int maxLevel(Node node){
+        if (node == null){
+          return 0;
+        }
+        return Math.max(maxLevel(node.left), maxLevel(node.right))+1;
     }
-    void printNode() {
-       int maxLevel = maxLevel(root);
 
-       printNodeInternal(Collections.singletonList(root), 1, maxLevel);
-   }
-  boolean isAllElementsNull(List<Node> list) {
+
+    void printNode(){
+      int maxLevel = maxLevel(root);
+      printNodeInternal(Collections.singletonList(root), 1, maxLevel);
+    }
+
+    boolean isAllElementsNull(List<Node> list) {
         for (Node node : list) {
             if (node != null)
                 return false;
@@ -131,61 +135,44 @@ class BinarySearchTree{
     }
 
 
-
     public static void main(String[] args){
-      BinarySearchTree tree = new BinarySearchTree();
+        BinarySearchTree tree = new BinarySearchTree();
 
-      /* creando el siguiente arbol
+        /* creando el siguiente arbol
 
-              100
-            /     \
-          60      140
-        /   \     /  \
-      40    80  120  160
-      */
+                100
+              /     \
+            60      140
+          /   \     / \
+        40    80  120 160
+        */
 
-      tree.add(100);
-      tree.add(60);
-      tree.add(40);
-      tree.add(80);
-      tree.add(140);
-      tree.add(120);
-      tree.add(160);
+        tree.add(100);
+        tree.add(60);
+        tree.add(40);
+        tree.add(80);
+        tree.add(140);
+        tree.add(120);
+        tree.add(160);
+        tree.printInOrder();
+        tree.printNode();
 
-      tree.printInOrder();
+        System.out.println("*********");
 
-      tree.printNode();
-      System.out.println("*************");
+        tree = new BinarySearchTree();
+
+        tree.add(40);
+        tree.add(60);
+        tree.add(80);
+        tree.add(100);
+        tree.add(120);
+        tree.add(140);
+        tree.add(160);
+        tree.printInOrder();
+        tree.printNode();
 
 
-      /* creando el siguiente arbol
-
-              40
-                 \
-                   60
-                    \
-                    80
-                      \
-                        100
-                          \
-                          120
-                           \
-                            140
-                              \
-                              160
-      */
-      tree = new BinarySearchTree();
-
-      tree.add(40);
-      tree.add(60);
-      tree.add(80);
-      tree.add(100);
-      tree.add(120);
-      tree.add(140);
-      tree.add(160);
-
-      tree.printInOrder();
-      tree.printNode();
     }
+
 
 }
