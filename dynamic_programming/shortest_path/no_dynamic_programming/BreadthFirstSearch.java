@@ -25,51 +25,8 @@ class BreadthFirstSearch{
     adjacencies[s].add(d);
   }
 
-  // recorrido del BFS
-  void traversal(int s){
 
-    // un estado de visitado para cada nodo, e inicialmente
-    //vamos a colocar como no visitado a todos los nodos
-    boolean visited[] = new boolean[vNumber];
-
-    // nuestra cola para recorrer el BFS
-    LinkedList<LinkedList<Integer>> queue = new LinkedList<LinkedList<Integer>>();
-
-    // nuestro primer nodo fue marcado como visitado
-    visited[s] = true;
-    int steps = 0;
-    LinkedList<Integer> nodeInfo = new LinkedList<Integer>();
-    nodeInfo.add(s);
-    nodeInfo.add(steps);
-    queue.add(nodeInfo);
-
-
-    while(queue.size()!=0){
-
-      //sacar un elemento de la cola
-      nodeInfo  = queue.poll();
-      s = nodeInfo.get(0);
-      steps = nodeInfo.get(1);
-      System.out.println(s+": "+steps+" steps");
-
-      Iterator<Integer> it = adjacencies[s].listIterator();
-
-      while(it.hasNext()){
-        int node = it.next();
-        if(!visited[node]){
-          visited[node] = true;
-          nodeInfo = new LinkedList<Integer>();
-          nodeInfo.add(node);
-          nodeInfo.add(steps+1);
-          queue.add(nodeInfo);
-        }
-      }
-    }
-  }
-
-
-
-    // recorrido del BFS
+    // recorrido del BFS - recibe el origen el punto de partida
     void traversal(int s, int d){
 
       // un estado de visitado para cada nodo, e inicialmente
@@ -79,14 +36,19 @@ class BreadthFirstSearch{
       // nuestra cola para recorrer el BFS
       LinkedList<LinkedList<Integer>> queue = new LinkedList<LinkedList<Integer>>();
 
+
       // nuestro primer nodo fue marcado como visitado
       visited[s] = true;
       int steps = 0;
+
+      // no le vamos a pasar solo el nodo sino que le vamos a pasar tambien
+      //el numero de pasos
+      // mi lista mas pequenha contiene el nombre del nodo y el numero de pasos
+
       LinkedList<Integer> nodeInfo = new LinkedList<Integer>();
       nodeInfo.add(s);
       nodeInfo.add(steps);
       queue.add(nodeInfo);
-
 
       while(queue.size()!=0){
 
@@ -95,9 +57,8 @@ class BreadthFirstSearch{
         s = nodeInfo.get(0);
         steps = nodeInfo.get(1);
 
-        if(d==s){
-          System.out.println(s+": "+steps+" steps");
-          break;
+        if(d==s || d==-1){
+          System.out.println(s+" : "+steps+" steps.");
         }
 
         Iterator<Integer> it = adjacencies[s].listIterator();
@@ -141,11 +102,12 @@ class BreadthFirstSearch{
 
 
       int source = 0;
+      bfs.traversal(source, -1);
       int destination = 4;
-      bfs.traversal(source);
+      System.out.println("Desde el nodo origen "+source+" hasta el nodo destino "+destination);
+      bfs.traversal(source, destination);
 
-      System.out.println("Distancia entre el origen "+source+" y el destino "+destination);
-      bfs.traversal(source,destination);
+
   }
 
 }
