@@ -1,6 +1,6 @@
 /* vamos a implementar la version de programacion dinamica
 para obtener nuestro valor optimo en el problema
-de weighted interval scheduling*/
+de weighted interval scheduling O(nLogn)*/
 
 import java.util.Arrays;
 import java.util.Comparator;
